@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Pizzaria</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Hepta+Slab:400,700|Lato:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="models">
+        <div class="pizzaItem">
+            <a href="">
+                <div class="pizzaItemImg"><img src="" /></div>
+                <div class="pizzaItemAdd">+</div>
+            </a>
+            <div class="pizzaItemPrice">R$ --</div>
+            <div class="pizzaItemName">--</div>
+            <div class="pizzaItemDesc">--</div>
+        </div>
+        <div class="cartItem">
+            <img src="" />
+            <div class="cartItemNome">--</div>
+            <div class="cartItemQtarea">
+                <button class="cartItemQtmenos">-</button>
+                <div class="cartItemQt">1</div>
+                <button class="cartItemQtmais">+</button>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="menuOpenner"><span>0</span>🛒</div>
+    </header>
+    <main>
+        <h1>Pizzas</h1>
+        <div class="pizzaArea"></div>
+    </main>
+    <aside>
+        <div class="cartArea">
+            <div class="menuCloser">❌</div>
+            <h1>Suas Pizzas</h1>
+            <div class="cart"></div>
+            <div class="cartDetails">
+                <div class="cartTotalItem subtotal">
+                    <span>Subtotal</span>
+                    <span>R$ --</span>
+                </div>
+                <div class="cartTotalitem desconto">
+                    <span>Desconto (-10%)</span>
+                    <span>R$ --</span>
+                </div>
+                <div class="cartTotalitem total big">
+                    <span>Total</span>
+                    <span>R$ --</span>
+                </div>
+                <div class="cartFinishing">Finalizar a compra</div>
+            </div>
+        </div>
+    </aside>
+    <div class="pizzaWindowArea">
+        <div class="pizzaWindowBody">
+            <div class="pizzaInfoCancelMobileButton">Voltar</div>
+            <div class="pizzaBig">
+                <img src="" />
+            </div>
+            <div class="pizzaInfo">
+                <h1>--</h1>
+                <div class="pizzaInfoDesc">--</div>
+                <div class="pizzaInfoSizearea">
+                    <div class="pizzaInfoSector">Tamanho</div>
+                    <div class="pizzaInfoSizes">
+                        <div data-key="0" class="pizzaInfoSize">PEQUENA <span>--</span></div>
+                        <div data-key="1" class="pizzaInfoSize">MÉDIO <span>--</span></div>
+                        <div data-key="2" class="pizzaInfoSize selected">GRANDE <span>--</span></div>
+                    </div>
+                </div>
+                <div class="pizzaInfoPricearea">
+                    <div class="pizzaInfoSector">Preço</div>
+                    <div class="pizzaInfoPrice">
+                        <div class="pizzaInfoActualPrice">R$ --</div>
+                        <div class="pizzaInfoQtarea">
+                            <button class="pizzaInfoQtmenos">-</button>
+                            <div class="pizzaInfoQt">1</div>
+                            <button class="pizzaInfoQtmais">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pizzaInfoAddButton">Adicionar ao carrinho</div>
+                <div class="pizzaInfoCancelButton">Cancelar</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="pizzas.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
