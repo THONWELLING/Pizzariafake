@@ -66,7 +66,11 @@ c('.pizzaInfoQtmenos').addEventListener('click', () => {
 c('.pizzaInfoQtmais').addEventListener('click', () => {
   modalQt++
   c('.pizzaInfoQt').innerHTML = modalQt
+  if(modalQt != 1){
+    c('.cartArea').innerHTML
+  }
 })
+
 
 //Lidando com os tamanhos das pizzas
 
@@ -97,7 +101,17 @@ c('.pizzaInfoAddButton').addEventListener('click', () => {
   closeModal()
 })
 
+
+c('.menuOpenner').addEventListener('click', () => {
+  if(cart.length > 0) {
+    c('aside').style.left = '0'
+  }
+})
+c('.menuCloser').addEventListener('click', () => {
+  c('aside').style.left = '100vw'
+})
 const updateCart =()=> {
+  c('.menuOpenner').innerHTML = cart.length
   if(cart.length > 0) {
     c('aside').classList.add('show')
     c('.cart').innerHTML = ''
@@ -129,7 +143,7 @@ const updateCart =()=> {
       cartItem.querySelector('.cartItemNome').innerHTML = pizzaData
       cartItem.querySelector('.cartItemQt').innerHTML = cart[i].qt
       cartItem.querySelector('.cartItemQtmenos').addEventListener('click', () => {
-        if(cart[i].qt > 1) {
+        if(cart[i].qt > 1 ) {
           cart[i].qt--
         } else {
           cart.splice(i, 1)
@@ -150,5 +164,7 @@ const updateCart =()=> {
       c('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`
   }else{
     c('aside').classList.remove('show')
+    c('aside').style.left = '100vw'
+
   }
 }
