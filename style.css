@@ -45,7 +45,7 @@ aside {
   background-color: #9ccbe6;
   width: 0vw;
   font-family: "Hepta Slab", Helvetica, Arial;
-  transition: all ease 0.2s;
+  transition: all ease 0.3s;
   overflow-x: hidden;
 }
 aside.show {
@@ -305,17 +305,35 @@ h1 {
   padding: 15px 0;
   border-top: 1px solid #79b9dd;
   color: #315970;
+  font-style: italic;
   display: flex;
   justify-content: space-between;
-  font-size: 15px;
+  font-size: 16px;
 }
-.cartTotalItem span:first-child {
-  font-weight: bold;
+.cartTotalItem span:last-child {
+  font-weight: 600;
 }
-.cartTotalItem.big {
+.desconto,
+.big {
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid #79b9dd;
+  padding: 15px 0;
+}
+.desconto span:last-child {
+  font-weight: 600;
+  color: #0968f6;
+}
+
+.big {
   font-size: 20px;
   color: #000;
   font-weight: bold;
+  margin-top: 10px;
+}
+.big span:last-child {
+  font-weight: bolder;
+  color: #32a345;
 }
 .cartFinishing {
   padding: 20px 30px;

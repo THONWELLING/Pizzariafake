@@ -45,7 +45,7 @@ pizzaJson.map((item, index) => {
 
 // eventos relacionados ao modal
 
-const closeModal = () => {
+const closeModal =()=> {
   c('.pizzaWindowArea').style.opacity = 0
     setTimeout(()=> {
       c('.pizzaWindowArea').style.display = 'none'
@@ -81,10 +81,8 @@ c('.pizzaInfoQtmais').addEventListener('click', () => {
 
 c('.pizzaInfoAddButton').addEventListener('click', () => {
   let size = parseInt(c('.pizzaInfoSize.selected').getAttribute('data-key'))
-
   let identifier = pizzaJson[modalKey].id + '&' + size
-  let key = cart.findIndex((item) => item.identifier == identifier)
-  
+  let key = cart.findIndex((item) => item.identifier == identifier) 
   if(key > -1) {
     cart[key].qt += modalQt
   }else{
@@ -95,6 +93,62 @@ c('.pizzaInfoAddButton').addEventListener('click', () => {
       qt: modalQt
     })
   }
-
+  updateCart()
   closeModal()
 })
+
+const updateCart =()=> {
+  if(cart.length > 0) {
+    c('aside').classList.add('show')
+    c('.cart').innerHTML = ''
+
+    let subtotal = 0
+    let discount = 0
+    let total = 0
+
+    for(let i in cart) {
+      let pizzaItem = pizzaJson.find((item) => item.id == cart[i].id)
+      subtotal += pizzaItem.price * cart[i].qt
+
+      let cartItem = c('.models .cartItem').cloneNode(true)
+      let pizzaSizeName
+      switch(cart[i].size) {
+        case 0:
+          pizzaSizeName = 'Pequena'
+        break
+        case 1:
+          pizzaSizeName = "Média"
+        break
+        case 2:
+          pizzaSizeName = "Grande"
+        break
+      }
+      let pizzaData = `${pizzaItem.name} (${pizzaSizeName})`
+
+      cartItem.querySelector('img').src = pizzaItem.img
+      cartItem.querySelector('.cartItemNome').innerHTML = pizzaData
+      cartItem.querySelector('.cartItemQt').innerHTML = cart[i].qt
+      cartItem.querySelector('.cartItemQtmenos').addEventListener('click', () => {
+        if(cart[i].qt > 1) {
+          cart[i].qt--
+        } else {
+          cart.splice(i, 1)
+        }
+        updateCart()
+      })
+      cartItem.querySelector('.cartItemQtmais').addEventListener('click', () => {
+        cart[i].qt++
+        updateCart()
+      })
+      
+      c('.cart').append(cartItem)
+    }
+      desconto = subtotal * 0.1
+      total = subtotal - desconto
+      c('.subtotal span:last-child').innerHTML = `R$ ${subtotal.toFixed(2)}`
+      c('.desconto span:last-child').innerHTML = `R$ ${desconto.toFixed(2)}`
+      c('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`
+  }else{
+    c('aside').classList.remove('show')
+  }
+}
